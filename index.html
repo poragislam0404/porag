@@ -1,153 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Porag Islam | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Porag Islam | AI & Cybersecurity Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
+
+<style>
+/* GLOBAL */
+body {
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:#020617;
+  color:white;
+  transition:0.3s;
+}
+
+.light {
+  background:white;
+  color:black;
+}
+
+/* NAV */
+nav {
+  position:fixed;
+  width:100%;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+/* HERO */
+.hero {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1 {
+  font-size:3.5rem;
+  background:linear-gradient(90deg,#00f5d4,#0ea5e9);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+/* BUTTON */
+.btn {
+  padding:10px 20px;
+  margin:10px;
+  background:#00f5d4;
+  color:black;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+/* SECTIONS */
+section {
+  padding:80px 10%;
+}
+
+/* CARDS */
+.card {
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  margin:10px;
+  border-radius:10px;
+  backdrop-filter:blur(10px);
+}
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* SKILLS */
+.bar {
+  height:10px;
+  background:#333;
+}
+.bar div {
+  height:10px;
+  background:#00f5d4;
+}
+
+/* CHATBOT */
+#chatbot {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:280px;
+  background:#111;
+  border-radius:10px;
+  padding:10px;
+}
+#chatbox {
+  height:150px;
+  overflow:auto;
+  font-size:12px;
+}
+
+/* THEME BUTTON */
+#themeToggle {
+  position:fixed;
+  top:20px;
+  right:20px;
+  cursor:pointer;
+}
+</style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">Porag Islam</div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#expertise">Expertise</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="#awards">Awards</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<button id="themeToggle">🌙</button>
+
+<nav>
+  <h2>Porag Islam</h2>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-content">
-    <h1>Porag Islam</h1>
-    <h2>Computer Science Student</h2>
-    <p>Bridging Technology, Education, and Innovation</p>
-    <div class="buttons">
-      <a href="#research" class="btn">View Research</a>
-      <a href="#contact" class="btn outline">Contact Me</a>
-    </div>
-  </div>
-</section>
+<div class="hero">
+  <h1>AI • Cybersecurity • Research</h1>
+  <p>Bridging Technology, Education, and Innovation</p>
+  <button class="btn">View Research</button>
+</div>
 
 <!-- ABOUT -->
-<section class="section">
-  <h2>About Me</h2>
-  <p>
-    I am Porag Islam, a computer science student focused on full-stack development and data analysis.
-    My work bridges the gap between technology, education, and leadership, with a focus on building
-    secure, innovative, and inclusive learning environments.
-  </p>
-  <p>
-    At Pacific States University, I study computer science, business, and analytics while contributing
-    to cybersecurity and digital infrastructure. My research explores machine learning,
-    AI-driven diagnostics, and cybersecurity strategies.
-  </p>
-</section>
-
-<!-- EXPERTISE -->
-<section id="expertise" class="section dark">
-  <h2>Expertise</h2>
-  <div class="grid">
-    <div class="card">Cybersecurity & Network Security</div>
-    <div class="card">AI & Machine Learning</div>
-    <div class="card">IT Infrastructure</div>
-    <div class="card">Academic Teaching</div>
-    <div class="card">Research & Publications</div>
-    <div class="card">Leadership</div>
-  </div>
+<section>
+<h2>About Me</h2>
+<p>
+I am Porag Islam, a computer science student focused on full-stack development and data analysis.
+My work bridges technology, education, and leadership with a focus on cybersecurity and AI systems.
+</p>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="section">
-  <h2>Skills</h2>
+<section>
+<h2>Skills</h2>
+<p>Cybersecurity</p>
+<div class="bar"><div style="width:95%"></div></div>
 
-  <div class="skill"><span>Cybersecurity</span><div class="bar"><div style="width:95%"></div></div></div>
-  <div class="skill"><span>Network Security</span><div class="bar"><div style="width:90%"></div></div></div>
-  <div class="skill"><span>Python</span><div class="bar"><div style="width:85%"></div></div></div>
-  <div class="skill"><span>Machine Learning</span><div class="bar"><div style="width:80%"></div></div></div>
-  <div class="skill"><span>Cloud Computing</span><div class="bar"><div style="width:75%"></div></div></div>
-  <div class="skill"><span>Academic Research</span><div class="bar"><div style="width:95%"></div></div></div>
-
+<p>Python</p>
+<div class="bar"><div style="width:85%"></div></div>
 </section>
 
 <!-- RESEARCH -->
-<section id="research" class="section dark">
-  <h2>Research</h2>
-  <p>Journal publications and AI cybersecurity research (Coming Soon)</p>
-  <a href="#" class="btn">Download CV</a>
+<section>
+<h2>Research</h2>
+<div id="research"></div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>AI Cybersecurity System</h3>
-      <p>ML-based threat detection system.</p>
-    </div>
-    <div class="card">
-      <h3>Intrusion Detection Model</h3>
-      <p>Network security ML pipeline.</p>
-    </div>
-    <div class="card">
-      <h3>Smart University Platform</h3>
-      <p>Digital academic system.</p>
-    </div>
-  </div>
-</section>
-
-<!-- EVENTS -->
-<section id="events" class="section dark">
-  <h2>Events</h2>
-  <ul>
-    <li>IEEE Conferences</li>
-    <li>Academic Workshops</li>
-    <li>University Activities</li>
-  </ul>
+<section>
+<h2>Projects</h2>
+<input id="filter" placeholder="Search projects...">
+<div id="projects" class="grid"></div>
 </section>
 
 <!-- AWARDS -->
-<section id="awards" class="section">
-  <h2>Awards</h2>
-  <div class="gallery">
-    <div class="gallery-item">
-      <img src="assets/award1.jpg">
-      <div class="overlay">
-        <h3>Academic Excellence Award</h3>
-        <p>Outstanding Performance - 2025</p>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <img src="assets/award2.jpg">
-      <div class="overlay">
-        <h3>Cybersecurity Recognition</h3>
-        <p>Research Achievement - 2024</p>
-      </div>
-    </div>
-  </div>
+<section>
+<h2>Awards</h2>
+<div class="grid">
+  <div class="card">Academic Excellence Award - 2025</div>
+  <div class="card">Cybersecurity Research Award - 2024</div>
+</div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section dark">
-  <h2>Contact</h2>
-  <form>
-    <input type="text" placeholder="Name">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Message"></textarea>
-    <button class="btn">Send</button>
-  </form>
-  <p>Pacific States University | California, USA</p>
+<section>
+<h2>Contact</h2>
+<form id="contact-form">
+<input placeholder="Name" required>
+<input placeholder="Email" required>
+<textarea placeholder="Message"></textarea>
+<button class="btn">Send</button>
+</form>
 </section>
 
-<script src="script.js"></script>
+<!-- CHATBOT -->
+<div id="chatbot">
+<div id="chatbox"></div>
+<input id="userInput" placeholder="Ask about my research...">
+</div>
+
+<script>
+// THEME
+document.getElementById("themeToggle").onclick = () => {
+  document.body.classList.toggle("light");
+};
+
+// RESEARCH DATA
+const researchData = [
+  {title:"AI Cybersecurity Systems", desc:"ML threat detection", year:"2025"},
+  {title:"Intrusion Detection ML", desc:"Network anomaly detection", year:"2024"}
+];
+
+const researchDiv = document.getElementById("research");
+researchData.forEach(r=>{
+  researchDiv.innerHTML += `
+    <div class="card">
+      <h3>${r.title}</h3>
+      <p>${r.desc}</p>
+      <small>${r.year}</small>
+    </div>
+  `;
+});
+
+// GITHUB PROJECTS
+let allProjects = [];
+fetch("https://api.github.com/users/YOUR_USERNAME/repos")
+.then(res=>res.json())
+.then(data=>{
+  allProjects = data;
+  showProjects(data);
+});
+
+function showProjects(projects){
+  const div = document.getElementById("projects");
+  div.innerHTML="";
+  projects.slice(0,6).forEach(p=>{
+    div.innerHTML += `
+      <div class="card">
+        <h3>${p.name}</h3>
+        <p>${p.description || "No description"}</p>
+      </div>
+    `;
+  });
+}
+
+// FILTER
+document.getElementById("filter").oninput = e=>{
+  const val = e.target.value.toLowerCase();
+  showProjects(allProjects.filter(p=>p.name.toLowerCase().includes(val)));
+};
+
+// CHATBOT
+const input = document.getElementById("userInput");
+const chatbox = document.getElementById("chatbox");
+
+input.addEventListener("keypress", e=>{
+  if(e.key==="Enter"){
+    const msg = input.value;
+    chatbox.innerHTML += `<p>You: ${msg}</p>`;
+    chatbox.innerHTML += `<p>AI: I specialize in AI, cybersecurity, and research.</p>`;
+    input.value="";
+  }
+});
+</script>
+
 </body>
 </html>
