@@ -3,258 +3,294 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Porag Islam — Portfolio</title>
 
-<title>Porag Islam | AI & Cybersecurity Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* GLOBAL */
-body {
-  margin:0;
-  font-family:'Inter', sans-serif;
-  background:#020617;
-  color:white;
-  transition:0.3s;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Inter,sans-serif;
+  background:#0b0c10;
+  color:#eaeaf0;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
 }
 
-.light {
-  background:white;
-  color:black;
-}
-
-/* NAV */
-nav {
+/* === APPLE STYLE BACKGROUND === */
+body::before{
+  content:'';
   position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(120,120,255,0.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(0,255,200,0.12), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(255,100,150,0.12), transparent 50%);
+  z-index:0;
+}
+
+/* NAV (GLASS) */
+nav{
+  position:fixed;
+  top:0;
   width:100%;
-  padding:15px 40px;
+  padding:16px 40px;
   display:flex;
   justify-content:space-between;
-  backdrop-filter:blur(10px);
-  z-index:1000;
+  align-items:center;
+  backdrop-filter:blur(20px);
+  background:rgba(10,10,15,0.5);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  z-index:100;
 }
 
+nav a{
+  color:#aaa;
+  text-decoration:none;
+  margin:0 14px;
+  font-size:13px;
+  letter-spacing:0.5px;
+}
+nav a:hover{color:#fff}
+
 /* HERO */
-.hero {
+.hero{
   height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
+  padding:0 20px;
+  position:relative;
+  z-index:1;
 }
 
-.hero h1 {
-  font-size:3.5rem;
-  background:linear-gradient(90deg,#00f5d4,#0ea5e9);
+.hero h1{
+  font-size:72px;
+  font-weight:800;
+  letter-spacing:-2px;
+  background:linear-gradient(90deg,#fff,#8aa0ff,#00ffd5);
   -webkit-background-clip:text;
   color:transparent;
+  animation:fadeUp 1s ease;
 }
 
-/* BUTTON */
-.btn {
-  padding:10px 20px;
-  margin:10px;
-  background:#00f5d4;
-  color:black;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
+.hero p{
+  margin-top:20px;
+  max-width:600px;
+  color:#aaa;
+  font-size:18px;
+  line-height:1.6;
+  animation:fadeUp 1.3s ease;
+}
+
+.cta{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+  animation:fadeUp 1.6s ease;
+}
+
+.btn{
+  padding:12px 22px;
+  border-radius:12px;
+  font-size:13px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.primary{
+  background:#fff;
+  color:#000;
+}
+
+.primary:hover{transform:scale(1.05)}
+
+.secondary{
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;
+}
+
+.secondary:hover{
+  border-color:#00ffd5;
+  color:#00ffd5;
 }
 
 /* SECTIONS */
-section {
-  padding:80px 10%;
+section{
+  padding:120px 20px;
+  max-width:1000px;
+  margin:auto;
+  position:relative;
+  z-index:1;
 }
 
-/* CARDS */
-.card {
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  margin:10px;
-  border-radius:10px;
-  backdrop-filter:blur(10px);
+.section-title{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:30px;
+  letter-spacing:-1px;
+}
+
+/* GLASS CARD */
+.card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:24px;
+  margin-bottom:20px;
+  backdrop-filter:blur(20px);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#00ffd5;
 }
 
 /* GRID */
-.grid {
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
 
 /* SKILLS */
-.bar {
-  height:10px;
-  background:#333;
-}
-.bar div {
-  height:10px;
-  background:#00f5d4;
-}
-
-/* CHATBOT */
-#chatbot {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:280px;
-  background:#111;
-  border-radius:10px;
-  padding:10px;
-}
-#chatbox {
-  height:150px;
-  overflow:auto;
+.skill{
+  display:inline-block;
+  padding:6px 12px;
+  margin:5px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.15);
   font-size:12px;
+  color:#bbb;
 }
 
-/* THEME BUTTON */
-#themeToggle {
-  position:fixed;
-  top:20px;
-  right:20px;
-  cursor:pointer;
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:60px 20px;
+  color:#666;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* SCROLL FADE */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s ease;
+}
+.fade.show{
+  opacity:1;
+  transform:none;
 }
 </style>
 </head>
 
 <body>
 
-<button id="themeToggle">🌙</button>
-
 <nav>
-  <h2>Porag Islam</h2>
+  <div><b>Porag Islam</b></div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <h1>AI • Cybersecurity • Research</h1>
-  <p>Bridging Technology, Education, and Innovation</p>
-  <button class="btn">View Research</button>
+  <h1>Builder. Developer. Student.</h1>
+  <p>
+    I design and build modern web applications with clean UI, strong logic,
+    and scalable architecture. Focused on full-stack development and data systems.
+  </p>
+
+  <div class="cta">
+    <a class="btn primary" href="#projects">View Work</a>
+    <a class="btn secondary" href="#contact">Contact Me</a>
+  </div>
 </div>
 
 <!-- ABOUT -->
-<section>
-<h2>About Me</h2>
-<p>
-I am Porag Islam, a computer science student focused on full-stack development and data analysis.
-My work bridges technology, education, and leadership with a focus on cybersecurity and AI systems.
-</p>
+<section id="about" class="fade">
+  <h2 class="section-title">About</h2>
+  <div class="card">
+    I am a Computer Science student passionate about software engineering,
+    full-stack development, and building real-world applications.
+  </div>
 </section>
 
 <!-- SKILLS -->
-<section>
-<h2>Skills</h2>
-<p>Cybersecurity</p>
-<div class="bar"><div style="width:95%"></div></div>
-
-<p>Python</p>
-<div class="bar"><div style="width:85%"></div></div>
-</section>
-
-<!-- RESEARCH -->
-<section>
-<h2>Research</h2>
-<div id="research"></div>
+<section id="skills" class="fade">
+  <h2 class="section-title">Skills</h2>
+  <div class="card">
+    <span class="skill">HTML</span>
+    <span class="skill">CSS</span>
+    <span class="skill">JavaScript</span>
+    <span class="skill">Python</span>
+    <span class="skill">React</span>
+    <span class="skill">Node.js</span>
+    <span class="skill">SQL</span>
+    <span class="skill">Git</span>
+  </div>
 </section>
 
 <!-- PROJECTS -->
-<section>
-<h2>Projects</h2>
-<input id="filter" placeholder="Search projects...">
-<div id="projects" class="grid"></div>
-</section>
+<section id="projects" class="fade">
+  <h2 class="section-title">Projects</h2>
 
-<!-- AWARDS -->
-<section>
-<h2>Awards</h2>
-<div class="grid">
-  <div class="card">Academic Excellence Award - 2025</div>
-  <div class="card">Cybersecurity Research Award - 2024</div>
-</div>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Portfolio Website</h3>
+      <p>Modern responsive portfolio with animations.</p>
+    </div>
+
+    <div class="card">
+      <h3>Weather App</h3>
+      <p>Real-time API-based weather tracking app.</p>
+    </div>
+
+    <div class="card">
+      <h3>To-Do App</h3>
+      <p>Task manager with local storage support.</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section>
-<h2>Contact</h2>
-<form id="contact-form">
-<input placeholder="Name" required>
-<input placeholder="Email" required>
-<textarea placeholder="Message"></textarea>
-<button class="btn">Send</button>
-</form>
+<section id="contact" class="fade">
+  <h2 class="section-title">Contact</h2>
+
+  <div class="card">
+    Email: your-email@gmail.com <br>
+    GitHub: github.com/poragislam0404
+  </div>
 </section>
 
-<!-- CHATBOT -->
-<div id="chatbot">
-<div id="chatbox"></div>
-<input id="userInput" placeholder="Ask about my research...">
-</div>
+<footer>
+  © 2026 Porag Islam — Built with precision
+</footer>
 
 <script>
-// THEME
-document.getElementById("themeToggle").onclick = () => {
-  document.body.classList.toggle("light");
-};
-
-// RESEARCH DATA
-const researchData = [
-  {title:"AI Cybersecurity Systems", desc:"ML threat detection", year:"2025"},
-  {title:"Intrusion Detection ML", desc:"Network anomaly detection", year:"2024"}
-];
-
-const researchDiv = document.getElementById("research");
-researchData.forEach(r=>{
-  researchDiv.innerHTML += `
-    <div class="card">
-      <h3>${r.title}</h3>
-      <p>${r.desc}</p>
-      <small>${r.year}</small>
-    </div>
-  `;
-});
-
-// GITHUB PROJECTS
-let allProjects = [];
-fetch("https://api.github.com/users/YOUR_USERNAME/repos")
-.then(res=>res.json())
-.then(data=>{
-  allProjects = data;
-  showProjects(data);
-});
-
-function showProjects(projects){
-  const div = document.getElementById("projects");
-  div.innerHTML="";
-  projects.slice(0,6).forEach(p=>{
-    div.innerHTML += `
-      <div class="card">
-        <h3>${p.name}</h3>
-        <p>${p.description || "No description"}</p>
-      </div>
-    `;
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('show');
   });
-}
+},{threshold:0.15});
 
-// FILTER
-document.getElementById("filter").oninput = e=>{
-  const val = e.target.value.toLowerCase();
-  showProjects(allProjects.filter(p=>p.name.toLowerCase().includes(val)));
-};
-
-// CHATBOT
-const input = document.getElementById("userInput");
-const chatbox = document.getElementById("chatbox");
-
-input.addEventListener("keypress", e=>{
-  if(e.key==="Enter"){
-    const msg = input.value;
-    chatbox.innerHTML += `<p>You: ${msg}</p>`;
-    chatbox.innerHTML += `<p>AI: I specialize in AI, cybersecurity, and research.</p>`;
-    input.value="";
-  }
-});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 </script>
 
 </body>
