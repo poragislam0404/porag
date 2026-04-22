@@ -5,188 +5,160 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Porag Islam — Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:Inter,sans-serif;
-  background:#0b0c10;
+  font-family:'Inter',sans-serif;
+  background:#0a0a0f;
   color:#eaeaf0;
   overflow-x:hidden;
-  scroll-behavior:smooth;
 }
 
-/* === APPLE STYLE BACKGROUND === */
+/* GRID BACKGROUND */
 body::before{
   content:'';
   position:fixed;
   inset:0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(120,120,255,0.15), transparent 40%),
-    radial-gradient(circle at 80% 30%, rgba(0,255,200,0.12), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(255,100,150,0.12), transparent 50%);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(circle at center, black 40%, transparent 100%);
   z-index:0;
 }
 
-/* NAV (GLASS) */
-nav{
+/* PARTICLES */
+#particles{
   position:fixed;
   top:0;
+  left:0;
   width:100%;
-  padding:16px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  backdrop-filter:blur(20px);
-  background:rgba(10,10,15,0.5);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  z-index:100;
+  height:100%;
+  z-index:0;
 }
 
-nav a{
-  color:#aaa;
-  text-decoration:none;
-  margin:0 14px;
-  font-size:13px;
-  letter-spacing:0.5px;
+/* CURSOR GLOW */
+.cursor-glow{
+  position:fixed;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle, rgba(200,255,0,0.15), transparent 70%);
+  transform:translate(-50%,-50%);
+  z-index:0;
 }
-nav a:hover{color:#fff}
 
-/* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:0 20px;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
   position:relative;
   z-index:1;
 }
 
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(10,10,15,0.7);
+  backdrop-filter:blur(15px);
+  padding:15px 20px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  z-index:100;
+}
+nav a{
+  margin-right:20px;
+  color:#aaa;
+  text-decoration:none;
+  font-size:14px;
+}
+nav a:hover{color:#c8ff00}
+
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
 .hero h1{
-  font-size:72px;
+  font-size:80px;
   font-weight:800;
-  letter-spacing:-2px;
-  background:linear-gradient(90deg,#fff,#8aa0ff,#00ffd5);
+  background:linear-gradient(90deg,#c8ff00,#4f8eff,#ff4f8e);
   -webkit-background-clip:text;
   color:transparent;
-  animation:fadeUp 1s ease;
 }
 
 .hero p{
   margin-top:20px;
-  max-width:600px;
+  max-width:550px;
   color:#aaa;
   font-size:18px;
-  line-height:1.6;
-  animation:fadeUp 1.3s ease;
-}
-
-.cta{
-  margin-top:30px;
-  display:flex;
-  gap:15px;
-  animation:fadeUp 1.6s ease;
 }
 
 .btn{
-  padding:12px 22px;
-  border-radius:12px;
-  font-size:13px;
+  margin-top:30px;
+  display:inline-block;
+  padding:14px 24px;
+  border:1px solid #c8ff00;
+  color:#c8ff00;
   text-decoration:none;
-  transition:0.3s;
-}
-
-.primary{
-  background:#fff;
-  color:#000;
-}
-
-.primary:hover{transform:scale(1.05)}
-
-.secondary{
-  border:1px solid rgba(255,255,255,0.2);
-  color:#fff;
-}
-
-.secondary:hover{
-  border-color:#00ffd5;
-  color:#00ffd5;
-}
-
-/* SECTIONS */
-section{
-  padding:120px 20px;
-  max-width:1000px;
-  margin:auto;
+  transition:.3s;
   position:relative;
-  z-index:1;
+}
+.btn:hover{
+  background:#c8ff00;
+  color:#000;
+  box-shadow:0 0 20px #c8ff00;
 }
 
-.section-title{
-  font-size:36px;
-  font-weight:700;
-  margin-bottom:30px;
-  letter-spacing:-1px;
+/* SECTION */
+.section{
+  margin-top:100px;
 }
 
-/* GLASS CARD */
+/* CARD */
 .card{
-  background:rgba(255,255,255,0.04);
+  background:rgba(255,255,255,0.03);
+  padding:20px;
   border:1px solid rgba(255,255,255,0.08);
-  border-radius:18px;
-  padding:24px;
   margin-bottom:20px;
-  backdrop-filter:blur(20px);
-  transition:0.3s;
+  transition:.3s;
 }
-
 .card:hover{
   transform:translateY(-6px);
-  border-color:#00ffd5;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  border-color:#c8ff00;
 }
 
 /* SKILLS */
-.skill{
+.skills span{
   display:inline-block;
+  border:1px solid #333;
   padding:6px 12px;
   margin:5px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.15);
-  font-size:12px;
-  color:#bbb;
+  font-size:13px;
 }
 
 /* FOOTER */
 footer{
+  margin-top:100px;
+  padding:20px;
   text-align:center;
-  padding:60px 20px;
+  border-top:1px solid #222;
   color:#666;
-  border-top:1px solid rgba(255,255,255,0.08);
 }
 
-/* ANIMATION */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* SCROLL FADE */
+/* FADE */
 .fade{
   opacity:0;
-  transform:translateY(40px);
-  transition:0.8s ease;
+  transform:translateY(30px);
+  transition:0.7s ease;
 }
 .fade.show{
   opacity:1;
@@ -197,100 +169,137 @@ footer{
 
 <body>
 
+<canvas id="particles"></canvas>
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <nav>
-  <div><b>Porag Islam</b></div>
-  <div>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Builder. Developer. Student.</h1>
-  <p>
-    I design and build modern web applications with clean UI, strong logic,
-    and scalable architecture. Focused on full-stack development and data systems.
-  </p>
+<div class="container">
 
-  <div class="cta">
-    <a class="btn primary" href="#projects">View Work</a>
-    <a class="btn secondary" href="#contact">Contact Me</a>
+<section class="hero fade">
+  <h1>Porag Islam</h1>
+  <p>Computer Science student focused on full-stack development and data analysis.</p>
+  <a href="#projects" class="btn">View Projects</a>
+</section>
+
+<section id="about" class="section fade">
+  <h2>About Me</h2>
+  <p>I build web apps using HTML, CSS, JavaScript, and Python.</p>
+</section>
+
+<section class="section fade">
+  <h2>Skills</h2>
+  <div class="skills">
+    <span>HTML</span><span>CSS</span><span>JavaScript</span>
+    <span>Python</span><span>React</span><span>Node.js</span>
   </div>
+</section>
+
+<section id="projects" class="section fade">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Portfolio Website</h3>
+    <p>Responsive portfolio site.</p>
+  </div>
+
+  <div class="card">
+    <h3>To-Do App</h3>
+    <p>Task manager with JavaScript.</p>
+  </div>
+
+</section>
+
+<section id="experience" class="section fade">
+  <h2>Experience</h2>
+  <div class="card">
+    <p>Computer Science Student — Building projects and learning development.</p>
+  </div>
+</section>
+
+<section id="contact" class="section fade">
+  <h2>Contact</h2>
+  <p>Email: your-email@gmail.com</p>
+  <p>GitHub: github.com/poragislam0404</p>
+</section>
+
 </div>
 
-<!-- ABOUT -->
-<section id="about" class="fade">
-  <h2 class="section-title">About</h2>
-  <div class="card">
-    I am a Computer Science student passionate about software engineering,
-    full-stack development, and building real-world applications.
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="fade">
-  <h2 class="section-title">Skills</h2>
-  <div class="card">
-    <span class="skill">HTML</span>
-    <span class="skill">CSS</span>
-    <span class="skill">JavaScript</span>
-    <span class="skill">Python</span>
-    <span class="skill">React</span>
-    <span class="skill">Node.js</span>
-    <span class="skill">SQL</span>
-    <span class="skill">Git</span>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="fade">
-  <h2 class="section-title">Projects</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Portfolio Website</h3>
-      <p>Modern responsive portfolio with animations.</p>
-    </div>
-
-    <div class="card">
-      <h3>Weather App</h3>
-      <p>Real-time API-based weather tracking app.</p>
-    </div>
-
-    <div class="card">
-      <h3>To-Do App</h3>
-      <p>Task manager with local storage support.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="fade">
-  <h2 class="section-title">Contact</h2>
-
-  <div class="card">
-    Email: your-email@gmail.com <br>
-    GitHub: github.com/poragislam0404
-  </div>
-</section>
-
 <footer>
-  © 2026 Porag Islam — Built with precision
+© 2026 Porag Islam
 </footer>
 
 <script>
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add('show');
+
+/* CURSOR GLOW */
+const glow = document.getElementById('cursorGlow');
+window.addEventListener('mousemove', e=>{
+  glow.style.left = e.clientX+'px';
+  glow.style.top = e.clientY+'px';
+});
+
+/* PARTICLES */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+let particles = [];
+for(let i=0;i<50;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    dx:(Math.random()-0.5)*0.3,
+    dy:(Math.random()-0.5)*0.3,
+    size:Math.random()*2
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x+=p.dx;
+    p.y+=p.dy;
+
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fillStyle='rgba(200,255,0,0.3)';
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* MAGNETIC BUTTON */
+document.querySelectorAll('.btn').forEach(btn=>{
+  btn.addEventListener('mousemove', e=>{
+    const r = btn.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width/2;
+    const y = e.clientY - r.top - r.height/2;
+    btn.style.transform = `translate(${x*0.2}px,${y*0.2}px)`;
+  });
+  btn.addEventListener('mouseleave', ()=>btn.style.transform='translate(0,0)');
+});
+
+/* FADE */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
   });
 },{threshold:0.15});
 
-document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+
 </script>
 
 </body>
