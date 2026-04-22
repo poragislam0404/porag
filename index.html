@@ -5,102 +5,121 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Porag Islam — Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-* {margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box}
 
-body {
+body{
   font-family:'Inter',sans-serif;
   background:#0a0a0f;
   color:#eaeaf0;
   overflow-x:hidden;
 }
 
-.container {
+/* GRID BACKGROUND */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(circle at center, black 40%, transparent 100%);
+  z-index:0;
+}
+
+.container{
   max-width:1100px;
   margin:auto;
   padding:40px 20px;
+  position:relative;
+  z-index:1;
 }
 
 /* NAV */
-nav {
+nav{
   position:fixed;
   width:100%;
   top:0;
   background:rgba(10,10,15,0.7);
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(15px);
   padding:15px 20px;
   border-bottom:1px solid rgba(255,255,255,0.08);
   z-index:100;
 }
-nav a {
+nav a{
   margin-right:20px;
   color:#aaa;
   text-decoration:none;
   font-size:14px;
 }
-nav a:hover {color:#c8ff00;}
+nav a:hover{color:#c8ff00}
 
 /* HERO */
-.hero {
+.hero{
   height:90vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
 }
-.hero h1 {
-  font-size:70px;
-  line-height:1;
-  background:linear-gradient(90deg,#c8ff00,#4f8eff);
+
+.hero h1{
+  font-size:80px;
+  font-weight:800;
+  background:linear-gradient(90deg,#c8ff00,#4f8eff,#ff4f8e);
   -webkit-background-clip:text;
   color:transparent;
 }
-.hero p {
+
+.hero p{
   margin-top:20px;
-  max-width:500px;
+  max-width:550px;
   color:#aaa;
+  font-size:18px;
 }
 
-/* BUTTON */
-.btn {
-  margin-top:25px;
+.btn{
+  margin-top:30px;
   display:inline-block;
-  padding:12px 20px;
+  padding:14px 24px;
   border:1px solid #c8ff00;
   color:#c8ff00;
   text-decoration:none;
-  transition:0.3s;
+  transition:.3s;
 }
-.btn:hover {
+.btn:hover{
   background:#c8ff00;
   color:#000;
+  box-shadow:0 0 20px #c8ff00;
 }
 
 /* SECTION */
-.section {
+.section{
   margin-top:100px;
 }
-.section h2 {
-  font-size:28px;
+.section h2{
+  font-size:30px;
   margin-bottom:20px;
 }
 
 /* CARD */
-.card {
-  background:#111;
+.card{
+  background:rgba(255,255,255,0.03);
   padding:20px;
-  border:1px solid rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
   margin-bottom:20px;
-  transition:0.3s;
+  transition:.3s;
 }
-.card:hover {
-  transform:translateY(-5px);
+.card:hover{
+  transform:translateY(-6px);
   border-color:#c8ff00;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 /* SKILLS */
-.skills span {
+.skills span{
   display:inline-block;
   border:1px solid #333;
   padding:6px 12px;
@@ -109,7 +128,7 @@ nav a:hover {color:#c8ff00;}
 }
 
 /* FOOTER */
-footer {
+footer{
   margin-top:100px;
   padding:20px;
   text-align:center;
@@ -117,13 +136,13 @@ footer {
   color:#666;
 }
 
-/* ANIMATION */
-.fade {
+/* FADE ANIMATION */
+.fade{
   opacity:0;
-  transform:translateY(20px);
-  transition:0.6s ease;
+  transform:translateY(30px);
+  transition:0.7s ease;
 }
-.fade.show {
+.fade.show{
   opacity:1;
   transform:none;
 }
@@ -149,6 +168,7 @@ footer {
     I build modern web applications and solve real-world problems through code.
   </p>
   <a href="#projects" class="btn">View Projects</a>
+  <a href="#" class="btn">Download Resume</a>
 </section>
 
 <!-- ABOUT -->
@@ -160,7 +180,7 @@ footer {
   </p>
   <p>
     I build projects using HTML, CSS, JavaScript, and Python, and I’m currently
-    learning React and backend technologies.
+    learning React and backend development.
   </p>
 </section>
 
@@ -185,7 +205,7 @@ footer {
 
   <div class="card">
     <h3>Portfolio Website</h3>
-    <p>Modern portfolio built with HTML, CSS, and JavaScript.</p>
+    <p>Modern responsive portfolio built with HTML, CSS, and JavaScript.</p>
     <a href="https://github.com/poragislam0404/portfolio">GitHub</a>
   </div>
 
@@ -243,15 +263,15 @@ footer {
 <script>
 const elements = document.querySelectorAll('.fade');
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
     if(entry.isIntersecting){
       entry.target.classList.add('show');
     }
   });
 });
 
-elements.forEach(el => observer.observe(el));
+elements.forEach(el=>observer.observe(el));
 </script>
 
 </body>
