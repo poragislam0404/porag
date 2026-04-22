@@ -5,66 +5,127 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Porag Islam — Portfolio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
+* {margin:0;padding:0;box-sizing:border-box;}
+
 body {
-  margin:0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family:'Inter',sans-serif;
   background:#0a0a0f;
-  color:#fff;
+  color:#eaeaf0;
+  overflow-x:hidden;
 }
+
 .container {
   max-width:1100px;
   margin:auto;
   padding:40px 20px;
 }
-h1,h2,h3 { color:#c8ff00; }
-a { color:#c8ff00; text-decoration:none; }
 
+/* NAV */
 nav {
   position:fixed;
   width:100%;
   top:0;
-  background:#0a0a0f;
+  background:rgba(10,10,15,0.7);
+  backdrop-filter:blur(12px);
   padding:15px 20px;
-  border-bottom:1px solid #222;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  z-index:100;
 }
-nav a { margin-right:20px; }
+nav a {
+  margin-right:20px;
+  color:#aaa;
+  text-decoration:none;
+  font-size:14px;
+}
+nav a:hover {color:#c8ff00;}
 
+/* HERO */
 .hero {
-  margin-top:80px;
-  padding:60px 0;
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 .hero h1 {
-  font-size:60px;
-  margin:0;
+  font-size:70px;
+  line-height:1;
+  background:linear-gradient(90deg,#c8ff00,#4f8eff);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 .hero p {
+  margin-top:20px;
   max-width:500px;
   color:#aaa;
 }
 
-.section { margin-top:80px; }
+/* BUTTON */
+.btn {
+  margin-top:25px;
+  display:inline-block;
+  padding:12px 20px;
+  border:1px solid #c8ff00;
+  color:#c8ff00;
+  text-decoration:none;
+  transition:0.3s;
+}
+.btn:hover {
+  background:#c8ff00;
+  color:#000;
+}
 
+/* SECTION */
+.section {
+  margin-top:100px;
+}
+.section h2 {
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+/* CARD */
 .card {
   background:#111;
   padding:20px;
+  border:1px solid rgba(255,255,255,0.06);
   margin-bottom:20px;
-  border:1px solid #222;
+  transition:0.3s;
+}
+.card:hover {
+  transform:translateY(-5px);
+  border-color:#c8ff00;
 }
 
+/* SKILLS */
 .skills span {
   display:inline-block;
   border:1px solid #333;
   padding:6px 12px;
   margin:5px;
+  font-size:13px;
 }
 
+/* FOOTER */
 footer {
-  margin-top:80px;
+  margin-top:100px;
   padding:20px;
   text-align:center;
   border-top:1px solid #222;
-  color:#777;
+  color:#666;
+}
+
+/* ANIMATION */
+.fade {
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.6s ease;
+}
+.fade.show {
+  opacity:1;
+  transform:none;
 }
 </style>
 </head>
@@ -81,29 +142,30 @@ footer {
 <div class="container">
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade">
   <h1>Porag Islam</h1>
   <p>
     Computer Science student focused on full-stack development and data analysis.
-    I build responsive web applications and explore real-world problems through code.
+    I build modern web applications and solve real-world problems through code.
   </p>
+  <a href="#projects" class="btn">View Projects</a>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section">
+<section id="about" class="section fade">
   <h2>About Me</h2>
   <p>
-    I'm a Computer Science student interested in software engineering,
+    I'm a Computer Science student passionate about software engineering,
     full-stack development, and data analysis.
   </p>
   <p>
-    I enjoy building projects using HTML, CSS, JavaScript, and Python,
-    and I’m currently learning React and backend development.
+    I build projects using HTML, CSS, JavaScript, and Python, and I’m currently
+    learning React and backend technologies.
   </p>
 </section>
 
 <!-- SKILLS -->
-<section class="section">
+<section class="section fade">
   <h2>Skills</h2>
   <div class="skills">
     <span>HTML</span>
@@ -118,12 +180,12 @@ footer {
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section">
+<section id="projects" class="section fade">
   <h2>Projects</h2>
 
   <div class="card">
     <h3>Portfolio Website</h3>
-    <p>Personal portfolio built with HTML, CSS, and JavaScript.</p>
+    <p>Modern portfolio built with HTML, CSS, and JavaScript.</p>
     <a href="https://github.com/poragislam0404/portfolio">GitHub</a>
   </div>
 
@@ -134,7 +196,7 @@ footer {
 
   <div class="card">
     <h3>Weather App</h3>
-    <p>Fetches real-time weather data using an API.</p>
+    <p>Uses API to display real-time weather data.</p>
   </div>
 
   <div class="card">
@@ -145,7 +207,7 @@ footer {
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="section">
+<section id="experience" class="section fade">
   <h2>Experience</h2>
 
   <div class="card">
@@ -161,7 +223,7 @@ footer {
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section">
+<section id="contact" class="section fade">
   <h2>Contact</h2>
   <p>Email: your-email@gmail.com</p>
   <p>
@@ -177,6 +239,20 @@ footer {
 <footer>
   © 2026 Porag Islam — Portfolio
 </footer>
+
+<script>
+const elements = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
